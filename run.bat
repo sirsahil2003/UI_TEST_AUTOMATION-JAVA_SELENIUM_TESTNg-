@@ -1,0 +1,2 @@
+cd D:\SDET\UI_TEST_AUTOMATION
+mvn test
