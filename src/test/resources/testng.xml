@@ -3,8 +3,8 @@
 
 <suite name="UI Automation Suite"
        parallel="tests"
-       thread-count="2"
-       data-provider-thread-count="2">
+       thread-count="1"
+       data-provider-thread-count="1">
 
     <!-- LISTENERS GO HERE -->
     <listeners>
@@ -14,7 +14,7 @@
     <test name="Login Tests - Chrome">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="tests.LoginTest"/>
+            <class name="tests.DemoQaTest"/>
         </classes>
     </test>
 

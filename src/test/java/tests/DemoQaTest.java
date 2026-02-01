@@ -4,28 +4,30 @@ import base.BaseTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import pages.DemoQaLogin;
 
-public class LoginTest extends BaseTest {
-    private LoginPage loginPage;
+public class DemoQaTest extends BaseTest {
+    private DemoQaLogin loginPage;
 
     @BeforeMethod
     public void initPages() {
-        loginPage = new LoginPage(driver);
+        loginPage = new DemoQaLogin(driver);
     }
 
 
-    @Test (dataProvider = "loginData")
+    @Test(dataProvider = "loginData")
     public void verifyLoginFunctionality(String username,String password){
-       loginPage.login(username,password);
+        loginPage.login(username,password);
 
     }
     @DataProvider(name = "loginData",parallel = true)
     public Object[][] getLoginData(){
         return new Object[][]{
-            {"sahil123","u8479"},
-                {"faix123","hfkjerhfj"}
+                {"sahil","Sahil@123"},
+                {"sahil","Sahil@123"}
 
         };
     }
+
+
 }

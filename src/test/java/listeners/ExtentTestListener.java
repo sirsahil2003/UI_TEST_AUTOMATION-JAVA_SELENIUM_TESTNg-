@@ -2,8 +2,10 @@ package listeners;
 
 import com.aventstack.extentreports.ExtentTest;
 import org.testng.*;
+import utils.DriverFactory;
 import utils.ExtentManager;
 import utils.ExtentTestManager;
+import utils.ScreenshotUtils;
 
 public class ExtentTestListener implements ITestListener {
 
@@ -49,6 +51,17 @@ public class ExtentTestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentTestManager.getTest().fail(result.getThrowable());
+
+
+        String screenshotPath = ScreenshotUtils.captureScreenshot(
+                DriverFactory.getDriver(),
+                result.getMethod().getMethodName()
+        );
+
+
+        ExtentTestManager.getTest().addScreenCaptureFromPath(screenshotPath);
+
+
     }
 
     /**
