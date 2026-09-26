@@ -30,7 +30,7 @@ public class LoginPage {
         WebElement element = WaitUtils.waitForElementToBeClickable(driver,usernameField);
         element.sendKeys(username);
         //step logging using extent report
-        ExtentTestManager.getTest().log(Status.INFO,"user name has been entered "+username);
+        ExtentTestManager.getTest().log(Status.INFO,"user name has has been entered "+username);
 
     }
 

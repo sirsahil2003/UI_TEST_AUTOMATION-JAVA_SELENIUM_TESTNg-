@@ -31,7 +31,7 @@ public class DemoQaLogin {
         element.sendKeys(username);
         //step logging using extent report
 
-        ExtentTestManager.getTest().log(Status.INFO,"user name has been entered "+username);
+        ExtentTestManager.getTest().log(Status.INFO,"user name has been entered today "+username);
 
     }
 
