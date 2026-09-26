@@ -7,23 +7,23 @@ import org.testng.annotations.Test;
 import pages.DemoQaLogin;
 
 public class DemoQaTest extends BaseTest {
-    private DemoQaLogin loginPage;
+    private DemoQaLogin demoQaLogin;
 
     @BeforeMethod
     public void initPages() {
-        loginPage = new DemoQaLogin(driver);
+        demoQaLogin = new DemoQaLogin(driver);
     }
-
 
     @Test(dataProvider = "loginData")
     public void verifyLoginFunctionality(String username,String password){
-        loginPage.login(username,password);
-
+        demoQaLogin.login(username,password);
     }
-    @DataProvider(name = "loginData",parallel = true)
+
+    @DataProvider(name = "loginData",parallel = false)
     public Object[][] getLoginData(){
         return new Object[][]{
                 {"sahil","Sahil@123"},
+                {"sahil","Sahil@127"},
                 {"sahil","Sahil@123"}
 
         };

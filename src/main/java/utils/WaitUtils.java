@@ -32,7 +32,7 @@ public final class WaitUtils {
         WebDriverWait wait =
                 new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_EXPLICIT_WAIT));
 
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+        return wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(locator)));
     }
 
     public static WebElement waitForElementToBeVisible(

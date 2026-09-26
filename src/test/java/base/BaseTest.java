@@ -9,18 +9,18 @@ import org.testng.annotations.Parameters;
 import utils.ConfigReader;
 import utils.DriverFactory;
 
+import java.util.Objects;
+
 public class BaseTest {
 
     protected WebDriver driver;
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(@Optional("chrome") String browser) {
-
-        DriverFactory.initDriver(browser);
-        driver = DriverFactory.getDriver();
-
-        driver.get(ConfigReader.get("url"));
+    public void setUp(String browser) {
+        DriverFactory.initDriver(browser);  //initializing driver runtime polymorphism
+        driver = DriverFactory.getDriver();  // getting driver object using Singleton design pattern
+        driver.get(ConfigReader.get("url")); //navigating to the url provided in config file
     }
 
     @AfterMethod
